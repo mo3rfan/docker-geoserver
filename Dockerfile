@@ -136,6 +136,7 @@ COPY geoserver-plugin-download.sh /usr/local/bin/geoserver-plugin-download.sh
 COPY geoserver-rest-config.sh /usr/local/bin/geoserver-rest-config.sh
 COPY geoserver-rest-reload.sh /usr/local/bin/geoserver-rest-reload.sh
 COPY entrypoint.sh /entrypoint.sh
+COPY exit_on_crash.sh /exit_on_crash.sh
 COPY ${CUSTOM_FONTS} $GEOSERVER_DATA_DIR/styles/
 RUN groupadd -g $GID $UNAME
 RUN useradd -m -u $UID -g $GID --system $UNAME
