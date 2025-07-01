@@ -2,6 +2,21 @@ FROM tomcat:9-jdk11-temurin-jammy as mother
 LABEL maintainer="Alessandro Parma <alessandro.parma@geosolutionsgroup.com>"
 SHELL ["/bin/bash", "-c"]
 
+ARG http_proxy="http://proxyhttp.comune.intranet:8080/"
+ARG https_proxy="http://proxyhttps.comune.intranet:8080/"
+ARG ftp_proxy="http://proxyftp.comune.intranet:8080/"
+ARG no_proxy="localhost,127.0.0.1,.localhost,.comune.intranet"
+
+ENV http_proxy=$http_proxy
+ENV https_proxy=$https_proxy
+ENV ftp_proxy=$ftp_proxy
+ENV no_proxy=$no_proxy
+ENV HTTPS_PROXY=$https_proxy
+ENV HTTP_PROXY=$http_proxy
+ENV FTP_PROXY=$ftp_proxy
+ENV NO_PROXY=$no_proxy
+ENV HTTPS_PROXY_REQUEST_FULLURI=0
+
 ARG CORS_ENABLED=false
 ARG CORS_ALLOWED_ORIGINS=*
 ARG CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
