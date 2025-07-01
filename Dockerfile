@@ -77,6 +77,21 @@ RUN \
 
 FROM tomcat:9-jdk11-temurin-jammy
 
+ARG http_proxy="http://proxyhttp.comune.intranet:8080/"
+ARG https_proxy="http://proxyhttps.comune.intranet:8080/"
+ARG ftp_proxy="http://proxyftp.comune.intranet:8080/"
+ARG no_proxy="localhost,127.0.0.1,.localhost,.comune.intranet"
+
+ENV http_proxy=$http_proxy
+ENV https_proxy=$https_proxy
+ENV ftp_proxy=$ftp_proxy
+ENV no_proxy=$no_proxy
+ENV HTTPS_PROXY=$https_proxy
+ENV HTTP_PROXY=$http_proxy
+ENV FTP_PROXY=$ftp_proxy
+ENV NO_PROXY=$no_proxy
+ENV HTTPS_PROXY_REQUEST_FULLURI=0
+
 ARG UID=1000
 ARG GID=1000
 ARG UNAME=tomcat
