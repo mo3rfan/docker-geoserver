@@ -6,6 +6,8 @@ services:
       dockerfile: ./Dockerfile
       args:
         GEOSERVER_WEBAPP_SRC: "https://build.geoserver.org/geoserver/main/geoserver-main-latest-war.zip"
+    deploy:
+      replicas: 2
     container_name: geoserver
     ports:
       - 8080
