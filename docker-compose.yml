@@ -1,4 +1,7 @@
 version: "3"
+networks:
+  geoserver_network:
+    driver: bridge
 services:
   geoserver:
     build:
@@ -10,3 +13,15 @@ services:
       replicas: 2
     ports:
       - 8080
+    networks:
+      - geoserver_network
+  proxy:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.nginx
+    ports:
+      - 80:80
+    depends_on:
+      - geoserver
+    networks:
+      - geoserver_network
