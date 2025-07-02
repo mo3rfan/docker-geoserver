@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
       args:
-        GEOSERVER_WEBAPP_SRC: "https://build.geoserver.org/geoserver/main/geoserver-main-latest-war.zip"
+        GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
     deploy:
       replicas: 1
     ports:
