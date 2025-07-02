@@ -10,7 +10,7 @@ services:
       args:
         GEOSERVER_WEBAPP_SRC: "https://build.geoserver.org/geoserver/main/geoserver-main-latest-war.zip"
     deploy:
-      replicas: 2
+      replicas: 1
     ports:
       - 8080
     networks:
