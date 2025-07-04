@@ -5,7 +5,7 @@ networks:
 volumes:
   gs_datadir:
 services:
-  geoserver:
+  geoserver_master:
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -13,6 +13,20 @@ services:
         GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
     deploy:
       replicas: 1
+    ports:
+      - 8080
+    networks:
+      - geoserver_network
+    volumes:
+      - gs_datadir:/var/geoserver/datadir
+  geoserver:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
+    deploy:
+      replicas: 2
     ports:
       - 8080
     networks:
