@@ -2,6 +2,8 @@ version: "3"
 networks:
   geoserver_network:
     driver: bridge
+volumes:
+  gs_datadir:
 services:
   geoserver:
     build:
@@ -15,6 +17,8 @@ services:
       - 8080
     networks:
       - geoserver_network
+    volumes:
+      - gs_datadir:/var/geoserver/datadir
   proxy:
     build:
       context: .
