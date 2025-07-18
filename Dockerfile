@@ -177,8 +177,8 @@ RUN chown -R $UID:$GID $GEOSERVER_LOG_DIR $CATALINA_BASE $GEOWEBCACHE_CACHE_DIR 
 RUN if [ ! -f "${GEOSERVER_DATA_DIR}/logging.xml" ]; then cp -a ${CATALINA_BASE}/webapps/geoserver/data/* ${GEOSERVER_DATA_DIR};fi
 
 WORKDIR "$CATALINA_BASE"
-USER $UNAME
+#USER $UNAME
 
 ENV TERM xterm
 EXPOSE 8080/tcp
-CMD ["/entrypoint.sh"]
+CMD ["/entrypoint.sh", "$UNAME"]
