@@ -4,6 +4,7 @@ networks:
     driver: bridge
 volumes:
   gs_datadir:
+  gs_context:
 services:
   geoserver_master:
     build:
@@ -19,6 +20,7 @@ services:
       - geoserver_network
     volumes:
       - gs_datadir:/var/geoserver/datadir
+      - gs_context:/gs_context/
   geoserver:
     build:
       context: .
@@ -33,6 +35,7 @@ services:
       - geoserver_network
     volumes:
       - gs_datadir:/var/geoserver/datadir
+      - gs_context:/gs_context/
   proxy:
     build:
       context: .

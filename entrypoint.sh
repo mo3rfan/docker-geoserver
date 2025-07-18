@@ -170,7 +170,7 @@ case "$GS_CORE_JAR" in
   printf "INFO: GeoServer version (from %s) does not require updating web.xml\n" "$GS_CORE_JAR"
   ;;
 esac
-
+cp -v /gs_context/context.xml /usr/local/tomcat/conf/context.xml
 catalina.sh run &
 /usr/local/bin/geoserver-rest-config.sh
 fg %1
