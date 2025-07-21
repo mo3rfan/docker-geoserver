@@ -14,6 +14,7 @@ services:
         GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
     deploy:
       replicas: 1
+    restart: unless-stopped
     ports:
       - 8080
     networks:
@@ -31,6 +32,7 @@ services:
       replicas: 2
     ports:
       - 8080
+    restart: unless-stopped
     networks:
       - geoserver_network
     volumes:
@@ -40,6 +42,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile.nginx
+    restart: unless-stopped
     ports:
       - 80:80
     depends_on:
