@@ -181,4 +181,5 @@ WORKDIR "$CATALINA_BASE"
 
 ENV TERM xterm
 EXPOSE 8080/tcp
-CMD ["/entrypoint.sh", "$UNAME"]
+ENV UNAME=$UNAME
+CMD ["/entrypoint.sh"]

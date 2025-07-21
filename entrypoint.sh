@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -x
-whoami
 chown -R $UNAME /gs_context/
 su $UNAME
 geoserver-plugin-download.sh ${CATALINA_BASE}/webapps/geoserver/WEB-INF/lib $PLUGIN_DYNAMIC_URLS
