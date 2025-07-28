@@ -28,6 +28,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
+        PLUG_IN_URLS: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-geofence-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-authkey-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-monitor-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-csw-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-wps-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-oracle-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-control-flow-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-params-extractor-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-querylayer-plugin.zip https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/extensions/geoserver-2.27.1-wmts-multi-dimensional-plugin.zip/download"
     deploy:
       replicas: 2
     ports:
