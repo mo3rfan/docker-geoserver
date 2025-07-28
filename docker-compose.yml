@@ -1,4 +1,3 @@
-version: "3"
 networks:
   geoserver_network:
     driver: bridge
