@@ -12,7 +12,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
-        PLUG_IN_URLS: "resources/geoserver-plugins"
+        PLUG_IN_PATHS: "resources/geoserver-plugins"
     deploy:
       replicas: 1
     restart: unless-stopped
@@ -29,7 +29,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         GEOSERVER_WEBAPP_SRC: "https://sourceforge.net/projects/geoserver/files/GeoServer/2.27.1/geoserver-2.27.1-war.zip/download"
-        PLUG_IN_URLS: "resources/geoserver-plugins"
+        PLUG_IN_PATHS: "resources/geoserver-plugins"
     deploy:
       replicas: 2
     ports:
