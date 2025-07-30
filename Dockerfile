@@ -182,4 +182,5 @@ WORKDIR "$CATALINA_BASE"
 ENV TERM xterm
 EXPOSE 8080/tcp
 ENV UNAME=$UNAME
+ADD resources/tomcat-libs/ojdbc8.jar $CATALINA_BASE/lib/ojdbc8.jar
 CMD ["/entrypoint.sh"]
