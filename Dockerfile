@@ -17,18 +17,6 @@ ENV FTP_PROXY=$ftp_proxy
 ENV NO_PROXY=$no_proxy
 ENV HTTPS_PROXY_REQUEST_FULLURI=0
 
-ARG CORS_ENABLED=true
-ARG CORS_ALLOWED_ORIGINS=http://sr-vm490-sitgfn.comune.intranet:8082
-ARG CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
-ARG CORS_ALLOWED_HEADERS=Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers
-ARG CORS_ALLOW_CREDENTIALS=false
-
-ENV CORS_ENABLED=$CORS_ENABLED
-ENV CORS_ALLOWED_ORIGINS=$CORS_ALLOWED_ORIGINS
-ENV CORS_ALLOWED_METHODS=$CORS_ALLOWED_METHODS
-ENV CORS_ALLOWED_HEADERS=$CORS_ALLOWED_HEADERS
-ENV CORS_ALLOW_CREDENTIALS=$CORS_ALLOW_CREDENTIALS
-
 ARG APP_LOCATION="geoserver"
 
 RUN apt-get update && apt-get install -y unzip
@@ -81,6 +69,18 @@ ARG http_proxy="http://proxyhttp.comune.intranet:8080/"
 ARG https_proxy="http://proxyhttps.comune.intranet:8080/"
 ARG ftp_proxy="http://proxyftp.comune.intranet:8080/"
 ARG no_proxy="localhost,127.0.0.1,.localhost,.comune.intranet"
+
+ARG CORS_ENABLED=true
+ARG CORS_ALLOWED_ORIGINS=http://sr-vm490-sitgfn.comune.intranet:8082
+ARG CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
+ARG CORS_ALLOWED_HEADERS=Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers
+ARG CORS_ALLOW_CREDENTIALS=false
+
+ENV CORS_ENABLED=$CORS_ENABLED
+ENV CORS_ALLOWED_ORIGINS=$CORS_ALLOWED_ORIGINS
+ENV CORS_ALLOWED_METHODS=$CORS_ALLOWED_METHODS
+ENV CORS_ALLOWED_HEADERS=$CORS_ALLOWED_HEADERS
+ENV CORS_ALLOW_CREDENTIALS=$CORS_ALLOW_CREDENTIALS
 
 ENV http_proxy=$http_proxy
 ENV https_proxy=$https_proxy
