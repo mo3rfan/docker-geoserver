@@ -126,6 +126,7 @@ ENV GEOSERVER_OPTS=" \
   -DGRIB_CACHE_DIR=${GRIB_CACHE_DIR}"
 
 ENV CATALINA_OPTS="-Xms${INITIAL_MEMORY} -Xmx${MAXIMUM_MEMORY} \
+  -Dgwc.context.suffix=gwc \
   -Djava.awt.headless=true -server \
   -Dfile.encoding=UTF8 \
   -Djavax.servlet.request.encoding=UTF-8 \
