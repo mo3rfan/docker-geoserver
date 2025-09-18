@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-set -x
-chown -R $UNAME /gs_context/
-su $UNAME
 geoserver-plugin-download.sh ${CATALINA_BASE}/webapps/geoserver/WEB-INF/lib $PLUGIN_DYNAMIC_URLS
 set -m
 export CATALINA_OPTS="$CATALINA_OPTS $EXTRA_GEOSERVER_OPTS"

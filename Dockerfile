@@ -145,7 +145,7 @@ COPY run_tests.sh /docker/tests/run_tests.sh
 # install needed packages and create externalized dirs
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-    && apt-get install --yes git vim gdal-bin postgresql-client fontconfig libfreetype6 jq unzip \
+    && apt-get install --yes git vim gdal-bin postgresql-client fontconfig libfreetype6 jq unzip gosu \
     && apt-get clean \
     && apt-get -y autoclean \
     && apt-get -y autoremove \
@@ -168,6 +168,7 @@ COPY --from=mother "/output/plugins" "${CATALINA_BASE}/webapps/geoserver/WEB-INF
 COPY geoserver-plugin-download.sh /usr/local/bin/geoserver-plugin-download.sh
 COPY geoserver-rest-config.sh /usr/local/bin/geoserver-rest-config.sh
 COPY geoserver-rest-reload.sh /usr/local/bin/geoserver-rest-reload.sh
+COPY pre_entrypoint.sh /pre_entrypoint.sh
 COPY entrypoint.sh /entrypoint.sh
 COPY ${CUSTOM_FONTS} $GEOSERVER_DATA_DIR/styles/
 RUN groupadd -g $GID $UNAME
@@ -182,4 +183,4 @@ WORKDIR "$CATALINA_BASE"
 ENV TERM xterm
 EXPOSE 8080/tcp
 ENV UNAME=$UNAME
-CMD ["/entrypoint.sh"]
+CMD ["/pre_entrypoint.sh"]
